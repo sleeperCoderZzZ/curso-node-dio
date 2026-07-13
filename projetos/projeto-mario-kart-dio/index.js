@@ -76,11 +76,21 @@ async function playRaceEngine(character1, character2) {
             totalTesteSkill1 = character1.poder;
             totalTesteSkill2 = character2.poder;
 
+            
+            console.log(`${character1.nome} confrontou com ${character2.nome}!`);
+            
+            if(totalTesteSkill1 > totalTesteSkill2 && totalTesteSkill1 > 0) {
+                console.log(`${character1.nome} venceu o confronto! ${character2.nome} perdeu 1 ponto de poder.`);
+                character2.poder--;
+            }
+
+            if(totalTesteSkill2 > totalTesteSkill1 && totalTesteSkill2 > 0) {
+                console.log(`${character2.nome} venceu o confronto! ${character1.nome} perdeu 1 ponto de poder.`);
+                character1.poder--;
+            }
+                        
             await logRollResults(character1, "PODER", dice1, totalTesteSkill1);
             await logRollResults(character2, "PODER", dice2, totalTesteSkill2);
-
-            character2.poder -= totalTesteSkill1 > totalTesteSkill2 && totalTesteSkill1 > 0 ? 1 : 0;
-            character1.poder -= totalTesteSkill2 > totalTesteSkill1 && totalTesteSkill2 > 0 ? 1 : 0;
 
         }
 
@@ -93,7 +103,23 @@ async function playRaceEngine(character1, character2) {
         } else {
             console.log(`\nEmpate na rodada!\n`);
         }
+    
+        console.log('----------------------------------------\n');
 
+    }
+}
+
+async function declareWinner(character1, character2) {
+    console.log(`Resultado final:\n`);
+    console.log(`${character1.nome} - ${character1.pontos} pontos`);
+    console.log(`${character2.nome} - ${character2.pontos} pontos\n`);
+
+    if(character1.pontos > character2.pontos) {
+        console.log(`${character1.nome} venceu a corrida!`);
+    } else if(character1.pontos < character2.pontos) {
+        console.log(`${character2.nome} venceu a corrida!`);
+    } else {
+        console.log(`A corrida terminou empatada!`);
     }
 }
 
@@ -101,5 +127,7 @@ async function playRaceEngine(character1, character2) {
     console.log(`Corrida entre ${player1.nome} e ${player2.nome} iniciada!\n`);
 
     await playRaceEngine(player1, player2);
+
+    await declareWinner(player1, player2);
 
 })();
