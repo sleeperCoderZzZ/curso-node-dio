@@ -1,0 +1,14 @@
+[
+  {
+    "podcastName": "Nome do Podcast",
+    "episode": "Episódio 1",
+    "videoId": "123456",
+    "categories": ["Categoria 1", "Categoria 2"]
+  },
+  {
+    "podcastName": "Nome do Podcast 2",
+    "episode": "Episódio 2",
+    "videoId": "789456123",
+    "categories": ["Categoria 3", "Categoria 4"]
+  }
+]

@@ -4,10 +4,9 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "module",
   "scripts": {
     "start": "tsx --env-file=.env src/server.ts",
-    "dev": "tsx --env-file=.env watch src/server.ts",
+    "dev": "tsx watch --env-file=.env src/server.ts",
     "dist": "tsup src",
     "start:dist": "npm run dist && --env-file=.env node/server.js"
   },
