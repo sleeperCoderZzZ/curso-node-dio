@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "name": "introducao-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "docs": "docs"
+  },
+  "scripts": {
+    "start:dist": "npm run transpile && node --watch index.js",
+    "start:dev": "tsx  --watch ./src/index.ts",
+    "transpile": "npx tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
