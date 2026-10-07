@@ -6,7 +6,7 @@ import { StatusCodes } from './utils/statusCode.utils';
 
 const server = http.createServer(async (request: http.IncomingMessage, response: http.ServerResponse) => {
     
-    if (request.url === Routes.LIST_EPISODES && request.method === HttpMethods.GET) {
+    if (request.url?.startsWith(Routes.LIST_EPISODES) && request.method === HttpMethods.GET) {
         await getListEpisodes(request, response);
     }
 
