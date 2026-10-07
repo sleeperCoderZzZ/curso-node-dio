@@ -1,9 +1,22 @@
-import { repositoryPodcast } from '../repository/podcast.repository';
+import { repositoryPodcast } from "../repository/podcast.repository";
 
-export const serviceFilterEpisodes = async (PodcastName: string) => {
+export const serviceFilterEpisodes = async (PodcastName: string | undefined) => {
   const data = await repositoryPodcast();
 
-    const filteredEpisodes = data.filter((episode) => episode.podcastName === PodcastName);
+  if (!PodcastName) {
+    throw new Error("Nome do podcast não fornecido");
+  }
 
-    return filteredEpisodes;
-}
+  const url = PodcastName.split("?")[1];
+  const podcastName = new URLSearchParams(url).get("podcastName");
+
+  if (!podcastName) {
+    throw new Error("Nome do podcast não fornecido");
+  }
+
+  const filteredEpisodes = data.filter(
+    (episode) => episode.podcastName === podcastName,
+  );
+
+  return filteredEpisodes;
+};
