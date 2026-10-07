@@ -3,6 +3,7 @@ import { getFilteredEpisodes, getListEpisodes } from './controllers/podcasts.con
 import { Routes } from './routes/routes.route';
 import { HttpMethods } from './utils/httpMethods.utils';
 import { StatusCodes } from './utils/statusCode.utils';
+import { ContentTypes } from './utils/contentType.utils';
 
 const server = http.createServer(async (request: http.IncomingMessage, response: http.ServerResponse) => {
     
@@ -14,7 +15,7 @@ const server = http.createServer(async (request: http.IncomingMessage, response:
         await getFilteredEpisodes(request, response);
     }
 
-    response.writeHead(StatusCodes.NOT_FOUND, { 'Content-Type': 'application/json' });
+    response.writeHead(StatusCodes.NOT_FOUND, { 'Content-Type': ContentTypes.JSON });
     response.end(JSON.stringify({ message: 'Endpoint não encontrado' }));
     
 });

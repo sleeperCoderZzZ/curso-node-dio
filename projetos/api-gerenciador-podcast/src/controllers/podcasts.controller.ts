@@ -2,13 +2,14 @@ import { IncomingMessage, ServerResponse } from "http";
 import { serviceListEpisodes } from "../services/listEpisodes.service";
 import { serviceFilterEpisodes } from "../services/filterEpisodes.service";
 import { StatusCodes } from "../utils/statusCode.utils";
+import { ContentTypes } from "../utils/contentType.utils";
 
 export const getListEpisodes = async (
   request: IncomingMessage,
   response: ServerResponse,
 ) => {
   const episodes = await serviceListEpisodes();
-  response.writeHead(StatusCodes.OK, { "Content-Type": "application/json" });
+  response.writeHead(StatusCodes.OK, { "Content-Type": ContentTypes.JSON });
   response.end(
     JSON.stringify({ message: "Lista de episódios", data: episodes }),
   );
@@ -22,7 +23,7 @@ export const getFilteredEpisodes = async (
 
   if (filteredEpisodes.length === 0) {
     response.writeHead(StatusCodes.NOT_FOUND, {
-      "Content-Type": "application/json",
+      "Content-Type": ContentTypes.JSON,
     });
     response.end(
       JSON.stringify({
@@ -34,7 +35,7 @@ export const getFilteredEpisodes = async (
 
   const url = filteredEpisodes[0]?.podcastName || "Desconhecido";
 
-  response.writeHead(StatusCodes.OK, { "Content-Type": "application/json" });
+  response.writeHead(StatusCodes.OK, { "Content-Type": ContentTypes.JSON });
   response.end(
     JSON.stringify({
       message: `Episódios filtrados por podcast: ${url}`,
