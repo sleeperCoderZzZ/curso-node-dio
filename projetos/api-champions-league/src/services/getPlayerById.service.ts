@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { repositoryGetPlayerById } from "../repositories/repositoryGetPlayerById.repository";
-import { NO_CONTENT, OK } from "../utils/http-helper";
+import { NOT_FOUND, OK } from "../utils/http-helper";
 
 export const getPlayerByIdService = async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -9,7 +9,7 @@ export const getPlayerByIdService = async (req: Request, res: Response) => {
   let response = null;
 
   if (!data) {
-    response = await NO_CONTENT();
+    response = await NOT_FOUND("Player not found.");
   } else {
     response = await OK(data);
   }

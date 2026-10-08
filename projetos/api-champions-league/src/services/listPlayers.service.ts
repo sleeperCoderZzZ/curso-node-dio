@@ -10,7 +10,7 @@ export const listPlayersService = async (req: Request, res: Response) => {
   if (!data) {
     response = await NO_CONTENT();
   } else {
-    response = await OK(response);
+    response = await OK(data);
   }
 
   return response;

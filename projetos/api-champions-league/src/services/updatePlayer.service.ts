@@ -1,7 +1,7 @@
 import { PlayerModel } from "../models/player-model";
 
 import { repositoryUpdatePlayer } from "../repositories/repositoryUpdatePlayer.repository";
-import { NO_CONTENT, BAD_REQUEST } from "../utils/http-helper";
+import { NO_CONTENT, BAD_REQUEST, NOT_FOUND } from "../utils/http-helper";
 
 export const updatePlayerService = async (id: number, player: PlayerModel): Promise<any> => {
   try {
@@ -10,7 +10,7 @@ export const updatePlayerService = async (id: number, player: PlayerModel): Prom
     let response = null;
 
     if (!data) {
-      response = await BAD_REQUEST("Failed to update player.");
+      response = await NOT_FOUND("Player not found.");
     } else {
       response = await NO_CONTENT();
     }
