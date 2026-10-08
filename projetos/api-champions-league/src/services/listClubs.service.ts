@@ -9,7 +9,7 @@ export const listClubsService = async (): Promise<any> => {
       return await INTERNAL_SERVER_ERROR("Failed to retrieve players.");
     }
 
-    const clubs = Array.from(new Set(players.map((player) => player.club)));
+    const clubs: string[] = Array.from(new Set(players.map((player) => player.club)));
 
     return await OK(clubs);
   } catch (error) {
