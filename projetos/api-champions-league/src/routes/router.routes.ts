@@ -6,6 +6,8 @@ const routes = Router();
 
 routes.get(RoutesList.LIST_PLAYERS, controllerPlayers.listPlayers);
 
+routes.get(RoutesList.LIST_CLUBS, controllerPlayers.listClubs);
+
 routes.get(RoutesList.GET_PLAYER, controllerPlayers.getPlayerById);
 
 routes.post(RoutesList.ADD_PLAYER, controllerPlayers.addPlayer);

@@ -34,3 +34,10 @@ export const NOT_FOUND = async (message: string): Promise<HttpResponse<any>> => 
     body: { message },
   };
 };
+
+export const INTERNAL_SERVER_ERROR = async (message: string): Promise<HttpResponse<any>> => {
+  return {
+    statusCode: 500,
+    body: { message },
+  };
+};

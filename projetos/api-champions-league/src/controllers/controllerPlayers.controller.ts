@@ -4,6 +4,7 @@ import { getPlayerByIdService } from "../services/getPlayerById.service";
 import { addPlayerService } from "../services/addPlayer.service";
 import { removePlayerService } from "../services/removePlayer.service";
 import { updatePlayerService } from "../services/updatePlayer.service";
+import { listClubsService } from "../services/listClubs.service";
 
 const listPlayers = async (req: Request, res: Response): Promise<void> => {
   const httpResponse = await listPlayersService(req, res);
@@ -30,8 +31,14 @@ const updatePlayer = async (req: Request, res: Response): Promise<void> => {
   res.status(httpResponse.statusCode).json(httpResponse.body);
 };
 
+const listClubs = async (req: Request, res: Response): Promise<void> => {
+  const httpResponse = await listClubsService();
+  res.status(httpResponse.statusCode).json(httpResponse.body);
+};
+
 export const controllerPlayers = {
   listPlayers,
+  listClubs,
   addPlayer,
   removePlayer,
   updatePlayer,
