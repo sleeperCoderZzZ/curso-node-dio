@@ -1,0 +1,79 @@
+{
+    "players": [
+        {
+            "id": 1,
+            "name": "Cristiano Ronaldo",
+            "club": "Manchester United",
+            "position": "Forward",
+            "statistics": {
+                "overall": 94,
+                "pace": 89,
+                "shooting": 93,
+                "passing": 81,
+                "dribbling": 92,
+                "defending": 38,
+                "physicality": 75
+            }
+        },
+        {
+            "id": 2,
+            "name": "Lionel Messi",
+            "club": "Paris Saint-Germain",
+            "position": "Forward",
+            "statistics": {
+                "overall": 93,
+                "pace": 92,
+                "shooting": 94,
+                "passing": 90,
+                "dribbling": 95,
+                "defending": 40,
+                "physicality": 70
+            }
+        },
+        {
+            "id": 3,
+            "name": "Neymar Jr.",
+            "club": "Paris Saint-Germain",
+            "position": "Forward",
+            "statistics": {
+                "overall": 92,
+                "pace": 91,
+                "shooting": 93,
+                "passing": 89,
+                "dribbling": 94,
+                "defending": 35,
+                "physicality": 65
+            }
+        },
+        {
+            "id": 4,
+            "name": "Kevin De Bruyne",
+            "club": "Manchester City",
+            "position": "Midfielder",
+            "statistics": {
+                "overall": 91,
+                "pace": 88,
+                "shooting": 87,
+                "passing": 94,
+                "dribbling": 90,
+                "defending": 75,
+                "physicality": 80
+            }
+        },
+        {
+            "id": 5,
+            "name": "Robert Lewandowski",
+            "club": "Barcelona",
+            "position": "Forward",
+            "statistics": {
+                "overall": 90,
+                "pace": 85,
+                "shooting": 92,
+                "passing": 88,
+                "dribbling": 89,
+                "defending": 45,
+                "physicality": 75
+            }
+        }
+    ]
+}
